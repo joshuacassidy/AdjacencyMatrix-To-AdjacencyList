@@ -5,16 +5,25 @@ public class Vertex {
 
     private Character name;
     private List<Edge> adjacenciesList;
-    private Vertex predecessor;
+    private List<Edge> predecessors;
     private boolean visited = false;
 
     public Vertex(Character name) {
         this.name = name;
         this.adjacenciesList = new ArrayList<>();
+        this.predecessors = new ArrayList<>();
     }
 
-    public void addNeighbour(Vertex startVertex,Vertex targetVertex) {
+    public void addAdjacency(Vertex startVertex, Vertex targetVertex) {
         this.adjacenciesList.add(new Edge(startVertex, targetVertex));
+    }
+
+    public void addPredesscor(Vertex targetVertex) {
+        this.predecessors.add(new Edge(targetVertex));
+    }
+
+    public List<Edge> getPredecessors() {
+        return predecessors;
     }
 
     public Character getName() {
@@ -34,13 +43,7 @@ public class Vertex {
     }
 
 
-    public Vertex getPredecessor() {
-        return predecessor;
-    }
 
-    public void setPredecessor(Vertex predecessor) {
-        this.predecessor = predecessor;
-    }
 
     public boolean isVisited() {
         return visited;

@@ -8,6 +8,9 @@ public class Edge {
         this.targetVertex = targetVertex;
     }
 
+    public Edge(Vertex targetVertex) {
+        this.targetVertex = targetVertex;
+    }
 
     public Vertex getStartVertex() {
         return startVertex;
