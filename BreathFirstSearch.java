@@ -24,4 +24,22 @@ public class BreathFirstSearch {
         return searchResults;
     }
 
+    public void clearVisited(Vertex root) {
+        Queue<Vertex> queue = new LinkedList<>();
+        root.setVisited(false);
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Vertex current = queue.remove();
+            for (Edge edge : current.getAdjacenciesList()) {
+                if (edge.getTargetVertex() != null) {
+                    Vertex v = edge.getTargetVertex();
+                    if (v.isVisited()) {
+                        v.setVisited(false);
+                        queue.add(v);
+                    }
+                }
+            }
+        }
+    }
+
 }
