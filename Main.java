@@ -18,7 +18,7 @@ public class Main {
             String results = breathFirstSearch.search(vertices.get(0));
             System.out.println(results);
         } else {
-            System.out.println("Breath first search can't be preformed on a empyt list");
+            System.out.println("Breath first search can't be preformed on a empty list");
         }
 
 
