@@ -16,7 +16,6 @@ public class MatrixToList {
         buildAdjacencyList(adjacencies, column);
         for (int i = 0, row = 'a'; i < matrix.length; i++, column++) {
             for (int j = 0; j < matrix[i].length; j++, row++) {
-                // Traverse using matrix[i][j] so we read the matrix left to right and top to bottom
                 addNeighbour(adjacencies, i, j, column, (char) row);
             }
             row = 'a';
@@ -25,6 +24,7 @@ public class MatrixToList {
         for (int i = 0; i < adjacencies.size(); i++) {
             if (adjacencies.get(i).getAdjacenciesList().size() == 0 && adjacencies.get(i).getPredecessors().size() == 0 ) {
                 adjacencies.remove(i);
+                i--;
             }
         }
 
